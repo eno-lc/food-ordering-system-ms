@@ -5,6 +5,8 @@ It contains input ports and output ports.
 Input ports are used to receive data from the outside world. Output ports are used to send data to the outside world.
 Dependency Inversion Principle is used to decouple the application from the outside world.
 
+![dependency-graph.png](target%2Fdependency-graph.png)
+
 # Domain-Driven Design
 
 ![img_8.png](images/img_8.png)
