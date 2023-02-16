@@ -7,6 +7,9 @@
     <groupId>com.food-ordering-system</groupId>
     <artifactId>food-ordering-system</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>order-service</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -18,9 +21,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
     </properties>
 
 
@@ -29,13 +30,13 @@
     <dependencies></dependencies>
 
 
-<!--maven-compiler-plugin is used to compile sources of your project. Default source /target setting is 1.7-->
+    <!--maven-compiler-plugin is used to compile sources of your project. Default source /target setting is 1.7-->
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.9.0</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <release>17</release>
                 </configuration>
