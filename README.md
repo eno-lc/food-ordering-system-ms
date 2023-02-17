@@ -67,3 +67,8 @@ kind of Application Services that is triggered by domain events. Each domain eve
 * Order Service Domain Layer - Logic 
 
 ![img_9.png](images%2Fimg_9.png)
+
+* Order State Transitions
+
+![img.png](images/img_10.png)
+
