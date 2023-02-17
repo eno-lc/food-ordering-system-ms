@@ -63,3 +63,7 @@ aggregates and saving state changes of the domain to the database. Does not cont
 kind of Application Services that is triggered by domain events. Each domain event listener can have a separate domain service to handle business logic.
 
 image:images/img_7.png[img_7.png]
+
+* Order Service Domain Layer - Logic 
+
+image:images/img_9.png[img_9.png]
