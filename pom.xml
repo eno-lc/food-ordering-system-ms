@@ -61,7 +61,17 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependencies></dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+    </dependencies>
 
 
     <!--maven-compiler-plugin is used to compile sources of your project. Default source /target setting is 1.7-->
