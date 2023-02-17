@@ -1,4 +1,4 @@
-= Hexagonal Architecture
+# Hexagonal Architecture
 
 Hexagonal architecture is a software architecture pattern that promotes the use of ports and adapters. It is also known as ports and adapters, hexagonal, onion, or clean architecture.
 It contains input ports and output ports.
@@ -7,7 +7,7 @@ Dependency Inversion Principle is used to decouple the application from the outs
 
 image:target%2Fdependency-graph.png[dependency-graph.png]
 
-= Domain-Driven Design
+# Domain-Driven Design
 
 image:images/img_8.png[img_8.png]
 
@@ -15,7 +15,7 @@ Domain-driven design offers solutions to common problems when building enterpris
 Domain model is a conceptual model of the domain that defines the behavior and data of a system.
 Domain model is the core of the application. It is the most important part of the application.
 
-= Strategic DDD vs Tactical DDD
+# Strategic DDD vs Tactical DDD
 
 Strategic DDD introduces boundaries for the domain model. Single bounded context per each domain model is recommended.
 What is a Domain? Operational area of your application, for example, online food ordering.
