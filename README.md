@@ -74,3 +74,5 @@ kind of Application Services that is triggered by domain events. Each domain eve
 
 
 # Kafka Architecture - High Level
+
+![img_11.png](images/img_11.png)
