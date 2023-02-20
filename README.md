@@ -75,4 +75,24 @@ kind of Application Services that is triggered by domain events. Each domain eve
 
 # Kafka Architecture - High Level
 
+* Kafka brokers - servers that form a cluster and serve to producers and consumers to insert and read data. Having multiple brokers in a cluster is important for high availability. With different servers, Kafka can replicate the data on different notes and be more resilient. 
+* Topics - logical data units that hold multiple partitions. 
+* Partitions are the smallest physical storage units that holds the data. Data can replicated on different partitions and kafka brokers.
+* Producers - writes data to end of a specific partition.   
+* Consumers - reads the data from a partition using an offset. They keep an offset with an ID, so they know where to start in case of restart.
+* Replication - resilient and fault-tolerant.
+* Scaling Partition Strategy.
+* Immutable append-only event logs - once the data is inserted it cannot be changed or updated, so it is immutable.
+
 ![img_11.png](images/img_11.png)
+
+
+# Zookeper and Schema Registry
+
+* Zookeeper - manages the cluster and stores the metadata.
+* Schema registry - stores versioned history of all schemas by ID.
+* Producers send the schema to schema registry and get a schema ID. Producer uses this schema to serialize the data, if you use Avro then this will be Avro Serialization and it sends the data with the ID to the Kafka Broker. 
+* Consumer will read the ID and the serialized data and get the schema from the schema registry by querying it with an ID and it simply deserializes the data using this schema.
+* Data is serialized/deserialized with registered schema.
+
+![img_12.png](images/img_12.png)
