@@ -1,0 +1,14 @@
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\Money.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\OrderApprovalStatus.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\OrderId.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\entity\BaseEntity.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\CustomerId.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\OrderStatus.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\event\publisher\DomainEventPublisher.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\BaseId.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\ProductId.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\RestaurantId.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\entity\AggregateRoot.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\PaymentStatus.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\exception\DomainException.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\event\DomainEvent.java

@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.food.ordering.system.order.service.domain.OrderApplicationServiceTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 3.199 s <<< FAILURE! - in com.food.ordering.system.order.service.domain.OrderApplicationServiceTest
+testCreateOrderWithWrongTotalPrice  Time elapsed: 0.123 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Total price: 250.00 is not equal to Order items total: 200.00!> but was: <Total price: 250.00 is not equal to Order Items total price: 200.00!>
+	at com.food.ordering.system.order.service.domain.OrderApplicationServiceTest.testCreateOrderWithWrongTotalPrice(OrderApplicationServiceTest.java:164)
+
+testCreateOrderWithWrongProductPrice  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Order item price: 60.00 is not valid for product d215b5f8-0249-4dc5-89a3-51fd148cfb48> but was: <Order Item price 60.00 is not valid for product d215b5f8-0249-4dc5-89a3-51fd148cfb48>
+	at com.food.ordering.system.order.service.domain.OrderApplicationServiceTest.testCreateOrderWithWrongProductPrice(OrderApplicationServiceTest.java:171)
+
+testCreateOrderWithPassiveRestaurant  Time elapsed: 0.009 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Restaurant with id d215b5f8-0249-4dc5-89a3-51fd148cfb45 is currently not active!> but was: <Restaurant with id d215b5f8-0249-4dc5-89a3-51fd148cfb45 is not active!>
+	at com.food.ordering.system.order.service.domain.OrderApplicationServiceTest.testCreateOrderWithPassiveRestaurant(OrderApplicationServiceTest.java:186)
+
