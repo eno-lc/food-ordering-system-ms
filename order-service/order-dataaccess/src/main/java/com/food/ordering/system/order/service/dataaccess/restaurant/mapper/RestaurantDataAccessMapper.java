@@ -29,7 +29,7 @@ public class RestaurantDataAccessMapper {
                 .map(entity -> new Product(new ProductId(entity.getProductId()), entity.getProductName(), new Money(entity.getProductPrice())))
                 .toList();
 
-        return Restaurant.Builder.builder()
+        return Restaurant.builder()
                 .restaurantId(new RestaurantId(restaurantEntity.getRestaurantId()))
                 .products(restaurantProducts)
                 .active(restaurantEntity.isRestaurantActive())

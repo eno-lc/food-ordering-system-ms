@@ -4,7 +4,6 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class StreetAddress {
-
     private final UUID id;
     private final String street;
     private final String postalCode;
@@ -37,12 +36,8 @@ public class StreetAddress {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         StreetAddress that = (StreetAddress) o;
-
-        if (!street.equals(that.street)) return false;
-        if (!postalCode.equals(that.postalCode)) return false;
-        return city.equals(that.city);
+        return street.equals(that.street) && postalCode.equals(that.postalCode) && city.equals(that.city);
     }
 
     @Override

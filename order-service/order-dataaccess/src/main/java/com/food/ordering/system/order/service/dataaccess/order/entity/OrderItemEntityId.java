@@ -8,9 +8,10 @@ import java.util.Objects;
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class OrderItemEntityId implements Serializable {
+
     private Long id;
     private OrderEntity order;
 

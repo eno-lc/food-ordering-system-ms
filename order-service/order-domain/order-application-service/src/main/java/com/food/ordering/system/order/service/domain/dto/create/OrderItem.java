@@ -8,15 +8,14 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+@Getter
 @Builder
 @AllArgsConstructor
-@Getter
 public class OrderItem {
-
     @NotNull
     private final UUID productId;
     @NotNull
-    private final int quantity;
+    private final Integer quantity;
     @NotNull
     private final BigDecimal price;
     @NotNull

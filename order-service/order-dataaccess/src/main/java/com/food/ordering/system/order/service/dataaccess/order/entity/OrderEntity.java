@@ -14,10 +14,9 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Table(name = "orders")
+@Entity
 public class OrderEntity {
-
     @Id
     private UUID id;
     private UUID customerId;

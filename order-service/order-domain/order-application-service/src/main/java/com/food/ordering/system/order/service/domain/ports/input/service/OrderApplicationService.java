@@ -9,7 +9,7 @@ import javax.validation.Valid;
 
 public interface OrderApplicationService {
 
-    CreateOrderResponse createOrder(@Valid  CreateOrderCommand createOrderCommand);
-    TrackOrderResponse trackOrder(@Valid TrackOrderQuery trackOrderQuery);
+    CreateOrderResponse createOrder(@Valid CreateOrderCommand createOrderCommand);
 
+    TrackOrderResponse trackOrder(@Valid TrackOrderQuery trackOrderQuery);
 }

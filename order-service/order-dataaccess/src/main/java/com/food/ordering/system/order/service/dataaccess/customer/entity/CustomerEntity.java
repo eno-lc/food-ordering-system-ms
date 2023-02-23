@@ -9,11 +9,11 @@ import java.util.UUID;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Entity
 @Table(name = "order_customer_m_view", schema = "customer")
+@Entity
 public class CustomerEntity {
 
     @Id
