@@ -17,6 +17,7 @@
         <module name="order-dataaccess" />
         <module name="order-container" />
         <module name="order-messaging" />
+        <module name="payment-service" />
         <module name="infrastructure" />
         <module name="common-domain" />
         <module name="order-application" />
@@ -31,7 +32,6 @@
       <module name="payment-domain" target="17" />
       <module name="payment-domain-core" target="17" />
       <module name="payment-messaging" target="17" />
-      <module name="payment-service" target="17" />
       <module name="restaurant-application-service" target="17" />
       <module name="restaurant-container" target="17" />
       <module name="restaurant-dataaccess" target="17" />
