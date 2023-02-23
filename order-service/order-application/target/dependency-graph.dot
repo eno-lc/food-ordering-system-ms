@@ -1,0 +1,95 @@
+digraph "order-application" {
+  node [shape="box",style="rounded",fontname="Helvetica",fontsize="14"]
+  edge [fontsize="10",fontname="Helvetica"]
+
+  // Node Definitions:
+  "com.food-ordering-system:order-application-service:jar"[label=<order-application-service>]
+  "com.food-ordering-system:order-domain-core:jar"[label=<order-domain-core>]
+  "com.food.ordering.system:common-domain:jar"[label=<common-domain>]
+  "org.springframework:spring-tx:jar"[label=<spring-tx>]
+  "org.springframework:spring-beans:jar"[label=<spring-beans>]
+  "org.springframework:spring-core:jar"[label=<spring-core>]
+  "org.springframework:spring-jcl:jar"[label=<spring-jcl>]
+  "com.food-ordering-system:order-application:jar"[label=<order-application>]
+  "org.springframework.boot:spring-boot-starter:jar"[label=<spring-boot-starter>]
+  "org.springframework.boot:spring-boot:jar"[label=<spring-boot>]
+  "org.springframework.boot:spring-boot-autoconfigure:jar"[label=<spring-boot-autoconfigure>]
+  "jakarta.annotation:jakarta.annotation-api:jar"[label=<jakarta.annotation-api>]
+  "org.yaml:snakeyaml:jar"[label=<snakeyaml>]
+  "org.springframework.boot:spring-boot-starter-web:jar"[label=<spring-boot-starter-web>]
+  "com.fasterxml.jackson.core:jackson-databind:jar"[label=<jackson-databind>]
+  "com.fasterxml.jackson.core:jackson-annotations:jar"[label=<jackson-annotations>]
+  "com.fasterxml.jackson.core:jackson-core:jar"[label=<jackson-core>]
+  "org.springframework.boot:spring-boot-starter-json:jar"[label=<spring-boot-starter-json>]
+  "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar"[label=<jackson-datatype-jdk8>]
+  "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar"[label=<jackson-datatype-jsr310>]
+  "com.fasterxml.jackson.module:jackson-module-parameter-names:jar"[label=<jackson-module-parameter-names>]
+  "org.springframework.boot:spring-boot-starter-tomcat:jar"[label=<spring-boot-starter-tomcat>]
+  "org.apache.tomcat.embed:tomcat-embed-core:jar"[label=<tomcat-embed-core>]
+  "org.apache.tomcat.embed:tomcat-embed-websocket:jar"[label=<tomcat-embed-websocket>]
+  "org.springframework:spring-web:jar"[label=<spring-web>]
+  "org.springframework:spring-webmvc:jar"[label=<spring-webmvc>]
+  "org.springframework:spring-aop:jar"[label=<spring-aop>]
+  "org.springframework:spring-context:jar"[label=<spring-context>]
+  "org.springframework:spring-expression:jar"[label=<spring-expression>]
+  "org.springframework.boot:spring-boot-starter-validation:jar"[label=<spring-boot-starter-validation>]
+  "org.apache.tomcat.embed:tomcat-embed-el:jar"[label=<tomcat-embed-el>]
+  "org.hibernate.validator:hibernate-validator:jar"[label=<hibernate-validator>]
+  "jakarta.validation:jakarta.validation-api:jar"[label=<jakarta.validation-api>]
+  "org.jboss.logging:jboss-logging:jar"[label=<jboss-logging>]
+  "com.fasterxml:classmate:jar"[label=<classmate>]
+  "com.food.ordering.system:common-application:jar"[label=<common-application>]
+  "org.projectlombok:lombok:jar"[label=<lombok<font point-size="10"><br/>(provided)</font>>]
+  "ch.qos.logback:logback-classic:jar"[label=<logback-classic>]
+  "ch.qos.logback:logback-core:jar"[label=<logback-core>]
+  "org.slf4j:slf4j-api:jar"[label=<slf4j-api>]
+  "org.springframework.boot:spring-boot-starter-logging:jar"[label=<spring-boot-starter-logging>]
+  "org.apache.logging.log4j:log4j-to-slf4j:jar"[label=<log4j-to-slf4j>]
+  "org.apache.logging.log4j:log4j-api:jar"[label=<log4j-api>]
+  "org.slf4j:jul-to-slf4j:jar"[label=<jul-to-slf4j>]
+
+  // Edge Definitions:
+  "com.food-ordering-system:order-application-service:jar" -> "com.food-ordering-system:order-domain-core:jar"
+  "com.food-ordering-system:order-application-service:jar" -> "com.food.ordering.system:common-domain:jar"
+  "org.springframework:spring-tx:jar" -> "org.springframework:spring-beans:jar"
+  "org.springframework:spring-core:jar" -> "org.springframework:spring-jcl:jar"
+  "org.springframework:spring-tx:jar" -> "org.springframework:spring-core:jar"
+  "com.food-ordering-system:order-application-service:jar" -> "org.springframework:spring-tx:jar"
+  "com.food-ordering-system:order-application:jar" -> "com.food-ordering-system:order-application-service:jar"
+  "org.springframework.boot:spring-boot-starter:jar" -> "org.springframework.boot:spring-boot:jar"
+  "org.springframework.boot:spring-boot-starter:jar" -> "org.springframework.boot:spring-boot-autoconfigure:jar"
+  "org.springframework.boot:spring-boot-starter:jar" -> "jakarta.annotation:jakarta.annotation-api:jar"
+  "org.springframework.boot:spring-boot-starter:jar" -> "org.yaml:snakeyaml:jar"
+  "org.springframework.boot:spring-boot-starter-web:jar" -> "org.springframework.boot:spring-boot-starter:jar"
+  "com.fasterxml.jackson.core:jackson-databind:jar" -> "com.fasterxml.jackson.core:jackson-annotations:jar"
+  "com.fasterxml.jackson.core:jackson-databind:jar" -> "com.fasterxml.jackson.core:jackson-core:jar"
+  "org.springframework.boot:spring-boot-starter-json:jar" -> "com.fasterxml.jackson.core:jackson-databind:jar"
+  "org.springframework.boot:spring-boot-starter-json:jar" -> "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar"
+  "org.springframework.boot:spring-boot-starter-json:jar" -> "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar"
+  "org.springframework.boot:spring-boot-starter-json:jar" -> "com.fasterxml.jackson.module:jackson-module-parameter-names:jar"
+  "org.springframework.boot:spring-boot-starter-web:jar" -> "org.springframework.boot:spring-boot-starter-json:jar"
+  "org.springframework.boot:spring-boot-starter-tomcat:jar" -> "org.apache.tomcat.embed:tomcat-embed-core:jar"
+  "org.springframework.boot:spring-boot-starter-tomcat:jar" -> "org.apache.tomcat.embed:tomcat-embed-websocket:jar"
+  "org.springframework.boot:spring-boot-starter-web:jar" -> "org.springframework.boot:spring-boot-starter-tomcat:jar"
+  "org.springframework.boot:spring-boot-starter-web:jar" -> "org.springframework:spring-web:jar"
+  "org.springframework:spring-webmvc:jar" -> "org.springframework:spring-aop:jar"
+  "org.springframework:spring-webmvc:jar" -> "org.springframework:spring-context:jar"
+  "org.springframework:spring-webmvc:jar" -> "org.springframework:spring-expression:jar"
+  "org.springframework.boot:spring-boot-starter-web:jar" -> "org.springframework:spring-webmvc:jar"
+  "com.food-ordering-system:order-application:jar" -> "org.springframework.boot:spring-boot-starter-web:jar"
+  "org.springframework.boot:spring-boot-starter-validation:jar" -> "org.apache.tomcat.embed:tomcat-embed-el:jar"
+  "org.hibernate.validator:hibernate-validator:jar" -> "jakarta.validation:jakarta.validation-api:jar"
+  "org.hibernate.validator:hibernate-validator:jar" -> "org.jboss.logging:jboss-logging:jar"
+  "org.hibernate.validator:hibernate-validator:jar" -> "com.fasterxml:classmate:jar"
+  "org.springframework.boot:spring-boot-starter-validation:jar" -> "org.hibernate.validator:hibernate-validator:jar"
+  "com.food-ordering-system:order-application:jar" -> "org.springframework.boot:spring-boot-starter-validation:jar"
+  "com.food-ordering-system:order-application:jar" -> "com.food.ordering.system:common-application:jar"
+  "com.food-ordering-system:order-application:jar" -> "org.projectlombok:lombok:jar"
+  "ch.qos.logback:logback-classic:jar" -> "ch.qos.logback:logback-core:jar"
+  "ch.qos.logback:logback-classic:jar" -> "org.slf4j:slf4j-api:jar"
+  "org.springframework.boot:spring-boot-starter-logging:jar" -> "ch.qos.logback:logback-classic:jar"
+  "org.apache.logging.log4j:log4j-to-slf4j:jar" -> "org.apache.logging.log4j:log4j-api:jar"
+  "org.springframework.boot:spring-boot-starter-logging:jar" -> "org.apache.logging.log4j:log4j-to-slf4j:jar"
+  "org.springframework.boot:spring-boot-starter-logging:jar" -> "org.slf4j:jul-to-slf4j:jar"
+  "com.food-ordering-system:order-application:jar" -> "org.springframework.boot:spring-boot-starter-logging:jar"
+}

@@ -1,0 +1,97 @@
+digraph "customer-service" {
+  node [shape="box",style="rounded",fontname="Helvetica",fontsize="14"]
+  edge [fontsize="10",fontname="Helvetica"]
+
+  // Node Definitions:
+  "org.springframework:spring-context:jar"[label=<spring-context>]
+  "org.springframework:spring-expression:jar"[label=<spring-expression>]
+  "org.springframework.boot:spring-boot:jar"[label=<spring-boot>]
+  "org.springframework.boot:spring-boot-starter:jar"[label=<spring-boot-starter>]
+  "org.springframework.boot:spring-boot-autoconfigure:jar"[label=<spring-boot-autoconfigure>]
+  "jakarta.annotation:jakarta.annotation-api:jar"[label=<jakarta.annotation-api>]
+  "org.springframework:spring-core:jar"[label=<spring-core>]
+  "org.springframework:spring-jcl:jar"[label=<spring-jcl>]
+  "org.yaml:snakeyaml:jar"[label=<snakeyaml>]
+  "com.food.ordering.system:customer-service:jar"[label=<customer-service>]
+  "org.springframework.boot:spring-boot-starter-aop:jar"[label=<spring-boot-starter-aop>]
+  "org.springframework:spring-aop:jar"[label=<spring-aop>]
+  "org.aspectj:aspectjweaver:jar"[label=<aspectjweaver>]
+  "org.springframework.boot:spring-boot-starter-data-jpa:jar"[label=<spring-boot-starter-data-jpa>]
+  "org.springframework.boot:spring-boot-starter-jdbc:jar"[label=<spring-boot-starter-jdbc>]
+  "com.zaxxer:HikariCP:jar"[label=<HikariCP>]
+  "org.springframework:spring-jdbc:jar"[label=<spring-jdbc>]
+  "jakarta.transaction:jakarta.transaction-api:jar"[label=<jakarta.transaction-api>]
+  "jakarta.persistence:jakarta.persistence-api:jar"[label=<jakarta.persistence-api>]
+  "org.hibernate:hibernate-core:jar"[label=<hibernate-core>]
+  "org.jboss.logging:jboss-logging:jar"[label=<jboss-logging>]
+  "net.bytebuddy:byte-buddy:jar"[label=<byte-buddy>]
+  "antlr:antlr:jar"[label=<antlr>]
+  "org.jboss:jandex:jar"[label=<jandex>]
+  "com.fasterxml:classmate:jar"[label=<classmate>]
+  "org.hibernate.common:hibernate-commons-annotations:jar"[label=<hibernate-commons-annotations>]
+  "org.glassfish.jaxb:jaxb-runtime:jar"[label=<jaxb-runtime>]
+  "jakarta.xml.bind:jakarta.xml.bind-api:jar"[label=<jakarta.xml.bind-api>]
+  "org.glassfish.jaxb:txw2:jar"[label=<txw2>]
+  "com.sun.istack:istack-commons-runtime:jar"[label=<istack-commons-runtime>]
+  "org.springframework.data:spring-data-jpa:jar"[label=<spring-data-jpa>]
+  "org.springframework.data:spring-data-commons:jar"[label=<spring-data-commons>]
+  "org.springframework:spring-orm:jar"[label=<spring-orm>]
+  "org.springframework:spring-tx:jar"[label=<spring-tx>]
+  "org.springframework:spring-beans:jar"[label=<spring-beans>]
+  "org.slf4j:slf4j-api:jar"[label=<slf4j-api>]
+  "org.springframework:spring-aspects:jar"[label=<spring-aspects>]
+  "org.postgresql:postgresql:jar"[label=<postgresql>]
+  "org.projectlombok:lombok:jar"[label=<lombok<font point-size="10"><br/>(provided)</font>>]
+  "ch.qos.logback:logback-classic:jar"[label=<logback-classic>]
+  "ch.qos.logback:logback-core:jar"[label=<logback-core>]
+  "org.springframework.boot:spring-boot-starter-logging:jar"[label=<spring-boot-starter-logging>]
+  "org.apache.logging.log4j:log4j-to-slf4j:jar"[label=<log4j-to-slf4j>]
+  "org.apache.logging.log4j:log4j-api:jar"[label=<log4j-api>]
+  "org.slf4j:jul-to-slf4j:jar"[label=<jul-to-slf4j>]
+
+  // Edge Definitions:
+  "org.springframework:spring-context:jar" -> "org.springframework:spring-expression:jar"
+  "org.springframework.boot:spring-boot:jar" -> "org.springframework:spring-context:jar"
+  "org.springframework.boot:spring-boot-starter:jar" -> "org.springframework.boot:spring-boot:jar"
+  "org.springframework.boot:spring-boot-starter:jar" -> "org.springframework.boot:spring-boot-autoconfigure:jar"
+  "org.springframework.boot:spring-boot-starter:jar" -> "jakarta.annotation:jakarta.annotation-api:jar"
+  "org.springframework:spring-core:jar" -> "org.springframework:spring-jcl:jar"
+  "org.springframework.boot:spring-boot-starter:jar" -> "org.springframework:spring-core:jar"
+  "org.springframework.boot:spring-boot-starter:jar" -> "org.yaml:snakeyaml:jar"
+  "com.food.ordering.system:customer-service:jar" -> "org.springframework.boot:spring-boot-starter:jar"
+  "org.springframework.boot:spring-boot-starter-aop:jar" -> "org.springframework:spring-aop:jar"
+  "org.springframework.boot:spring-boot-starter-aop:jar" -> "org.aspectj:aspectjweaver:jar"
+  "org.springframework.boot:spring-boot-starter-data-jpa:jar" -> "org.springframework.boot:spring-boot-starter-aop:jar"
+  "org.springframework.boot:spring-boot-starter-jdbc:jar" -> "com.zaxxer:HikariCP:jar"
+  "org.springframework.boot:spring-boot-starter-jdbc:jar" -> "org.springframework:spring-jdbc:jar"
+  "org.springframework.boot:spring-boot-starter-data-jpa:jar" -> "org.springframework.boot:spring-boot-starter-jdbc:jar"
+  "org.springframework.boot:spring-boot-starter-data-jpa:jar" -> "jakarta.transaction:jakarta.transaction-api:jar"
+  "org.springframework.boot:spring-boot-starter-data-jpa:jar" -> "jakarta.persistence:jakarta.persistence-api:jar"
+  "org.hibernate:hibernate-core:jar" -> "org.jboss.logging:jboss-logging:jar"
+  "org.hibernate:hibernate-core:jar" -> "net.bytebuddy:byte-buddy:jar"
+  "org.hibernate:hibernate-core:jar" -> "antlr:antlr:jar"
+  "org.hibernate:hibernate-core:jar" -> "org.jboss:jandex:jar"
+  "org.hibernate:hibernate-core:jar" -> "com.fasterxml:classmate:jar"
+  "org.hibernate:hibernate-core:jar" -> "org.hibernate.common:hibernate-commons-annotations:jar"
+  "org.glassfish.jaxb:jaxb-runtime:jar" -> "jakarta.xml.bind:jakarta.xml.bind-api:jar"
+  "org.glassfish.jaxb:jaxb-runtime:jar" -> "org.glassfish.jaxb:txw2:jar"
+  "org.glassfish.jaxb:jaxb-runtime:jar" -> "com.sun.istack:istack-commons-runtime:jar"
+  "org.hibernate:hibernate-core:jar" -> "org.glassfish.jaxb:jaxb-runtime:jar"
+  "org.springframework.boot:spring-boot-starter-data-jpa:jar" -> "org.hibernate:hibernate-core:jar"
+  "org.springframework.data:spring-data-jpa:jar" -> "org.springframework.data:spring-data-commons:jar"
+  "org.springframework.data:spring-data-jpa:jar" -> "org.springframework:spring-orm:jar"
+  "org.springframework.data:spring-data-jpa:jar" -> "org.springframework:spring-tx:jar"
+  "org.springframework.data:spring-data-jpa:jar" -> "org.springframework:spring-beans:jar"
+  "org.springframework.data:spring-data-jpa:jar" -> "org.slf4j:slf4j-api:jar"
+  "org.springframework.boot:spring-boot-starter-data-jpa:jar" -> "org.springframework.data:spring-data-jpa:jar"
+  "org.springframework.boot:spring-boot-starter-data-jpa:jar" -> "org.springframework:spring-aspects:jar"
+  "com.food.ordering.system:customer-service:jar" -> "org.springframework.boot:spring-boot-starter-data-jpa:jar"
+  "com.food.ordering.system:customer-service:jar" -> "org.postgresql:postgresql:jar"
+  "com.food.ordering.system:customer-service:jar" -> "org.projectlombok:lombok:jar"
+  "ch.qos.logback:logback-classic:jar" -> "ch.qos.logback:logback-core:jar"
+  "org.springframework.boot:spring-boot-starter-logging:jar" -> "ch.qos.logback:logback-classic:jar"
+  "org.apache.logging.log4j:log4j-to-slf4j:jar" -> "org.apache.logging.log4j:log4j-api:jar"
+  "org.springframework.boot:spring-boot-starter-logging:jar" -> "org.apache.logging.log4j:log4j-to-slf4j:jar"
+  "org.springframework.boot:spring-boot-starter-logging:jar" -> "org.slf4j:jul-to-slf4j:jar"
+  "com.food.ordering.system:customer-service:jar" -> "org.springframework.boot:spring-boot-starter-logging:jar"
+}
