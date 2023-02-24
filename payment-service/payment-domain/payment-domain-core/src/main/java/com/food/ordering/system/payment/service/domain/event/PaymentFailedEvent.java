@@ -6,7 +6,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 public class PaymentFailedEvent extends PaymentEvent{
-    protected PaymentFailedEvent(Payment payment, ZonedDateTime createdAt, List<String> failureMessages) {
+    public PaymentFailedEvent(Payment payment, ZonedDateTime createdAt, List<String> failureMessages) {
         super(payment, createdAt, failureMessages);
     }
 
