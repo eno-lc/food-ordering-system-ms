@@ -18,25 +18,23 @@
         <module name="payment-dataaccess" />
         <module name="order-dataaccess" />
         <module name="order-container" />
+        <module name="restaurant-container" />
         <module name="order-messaging" />
         <module name="payment-application-service" />
+        <module name="restaurant-dataaccess" />
         <module name="infrastructure" />
         <module name="payment-container" />
         <module name="common-domain" />
         <module name="order-application" />
+        <module name="restaurant-domain-core" />
         <module name="order-domain-core" />
         <module name="payment-domain-core" />
+        <module name="restaurant-application-service" />
+        <module name="restaurant-messaging" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common-dataaccess" target="17" />
-      <module name="restaurant-application-service" target="17" />
-      <module name="restaurant-container" target="17" />
-      <module name="restaurant-dataaccess" target="17" />
-      <module name="restaurant-domain" target="17" />
-      <module name="restaurant-domain-core" target="17" />
-      <module name="restaurant-messaging" target="17" />
-      <module name="restaurant-service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
