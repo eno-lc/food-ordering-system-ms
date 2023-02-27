@@ -10,7 +10,7 @@ import java.util.List;
 public class OrderApprovedEvent extends OrderApprovalEvent{
 
     private final DomainEventPublisher<OrderApprovedEvent> orderApprovedEventDomainEventPublisher;
-    protected OrderApprovedEvent(OrderApproval orderApproval, RestaurantId restaurantId, List<String> failureMessages, ZonedDateTime createdAt, DomainEventPublisher<OrderApprovedEvent> orderApprovedEventDomainEventPublisher) {
+    public OrderApprovedEvent(OrderApproval orderApproval, RestaurantId restaurantId, List<String> failureMessages, ZonedDateTime createdAt, DomainEventPublisher<OrderApprovedEvent> orderApprovedEventDomainEventPublisher) {
         super(orderApproval, restaurantId, failureMessages, createdAt);
         this.orderApprovedEventDomainEventPublisher = orderApprovedEventDomainEventPublisher;
     }
