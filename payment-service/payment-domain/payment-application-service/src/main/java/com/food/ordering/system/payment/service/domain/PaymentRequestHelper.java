@@ -23,25 +23,34 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Component
 @Slf4j
+@Component
 public class PaymentRequestHelper {
+
     private final PaymentDomainService paymentDomainService;
     private final PaymentDataMapper paymentDataMapper;
     private final PaymentRepository paymentRepository;
     private final CreditEntryRepository creditEntryRepository;
     private final CreditHistoryRepository creditHistoryRepository;
-    private final PaymentCompletedMessagePublisher paymentCompletedEventDomainPublisher;
-    private final PaymentCancelledMessagePublisher paymentCancelledEventDomainPublisher;
+    private final PaymentCompletedMessagePublisher paymentCompletedEventDomainEventPublisher;
+    private final PaymentCancelledMessagePublisher paymentCancelledEventDomainEventPublisher;
     private final PaymentFailedMessagePublisher paymentFailedEventDomainEventPublisher;
-    public PaymentRequestHelper(PaymentDomainService paymentDomainService, PaymentDataMapper paymentDataMapper, PaymentRepository paymentRepository, CreditEntryRepository creditEntryRepository, CreditHistoryRepository creditHistoryRepository, PaymentCompletedMessagePublisher paymentCompletedEventDomainPublisher, PaymentCancelledMessagePublisher paymentCancelledEventDomainPublisher, PaymentFailedMessagePublisher paymentFailedEventDomainEventPublisher) {
+
+    public PaymentRequestHelper(PaymentDomainService paymentDomainService,
+                                PaymentDataMapper paymentDataMapper,
+                                PaymentRepository paymentRepository,
+                                CreditEntryRepository creditEntryRepository,
+                                CreditHistoryRepository creditHistoryRepository,
+                                PaymentCompletedMessagePublisher paymentCompletedEventDomainEventPublisher,
+                                PaymentCancelledMessagePublisher paymentCancelledEventDomainEventPublisher,
+                                PaymentFailedMessagePublisher paymentFailedEventDomainEventPublisher) {
         this.paymentDomainService = paymentDomainService;
         this.paymentDataMapper = paymentDataMapper;
         this.paymentRepository = paymentRepository;
         this.creditEntryRepository = creditEntryRepository;
         this.creditHistoryRepository = creditHistoryRepository;
-        this.paymentCompletedEventDomainPublisher = paymentCompletedEventDomainPublisher;
-        this.paymentCancelledEventDomainPublisher = paymentCancelledEventDomainPublisher;
+        this.paymentCompletedEventDomainEventPublisher = paymentCompletedEventDomainEventPublisher;
+        this.paymentCancelledEventDomainEventPublisher = paymentCancelledEventDomainEventPublisher;
         this.paymentFailedEventDomainEventPublisher = paymentFailedEventDomainEventPublisher;
     }
 
@@ -50,56 +59,65 @@ public class PaymentRequestHelper {
         log.info("Received payment complete event for order id: {}", paymentRequest.getOrderId());
         Payment payment = paymentDataMapper.paymentRequestModelToPayment(paymentRequest);
         CreditEntry creditEntry = getCreditEntry(payment.getCustomerId());
-        List<CreditHistory> creditHistoryList = getCreditHistory(payment.getCustomerId());
+        List<CreditHistory> creditHistories = getCreditHistory(payment.getCustomerId());
         List<String> failureMessages = new ArrayList<>();
-        PaymentEvent paymentEvent = paymentDomainService.validateAndInitiatePayment(payment, creditEntry, creditHistoryList, failureMessages, paymentCompletedEventDomainPublisher, paymentFailedEventDomainEventPublisher);
-        persistDbObject(payment, creditEntry, creditHistoryList, failureMessages);
+        PaymentEvent paymentEvent =
+                paymentDomainService.validateAndInitiatePayment(payment, creditEntry, creditHistories, failureMessages,
+                        paymentCompletedEventDomainEventPublisher, paymentFailedEventDomainEventPublisher);
+        persistDbObjects(payment, creditEntry, creditHistories, failureMessages);
         return paymentEvent;
     }
 
     @Transactional
-    public PaymentEvent persistCancelPayment(PaymentRequest paymentRequest){
-        log.info("Received payment cancel event for order id: {}", paymentRequest.getOrderId());
-        Optional<Payment> paymentResponse = paymentRepository.findByOrderId(UUID.fromString(paymentRequest.getOrderId()));
-
-        if(paymentResponse.isEmpty()){
-            log.error("Payment not found for order id: {}", paymentRequest.getOrderId());
-            throw new PaymentApplicationServiceException("Payment not found for order id: " + paymentRequest.getOrderId());
+    public PaymentEvent persistCancelPayment(PaymentRequest paymentRequest) {
+        log.info("Received payment rollback event for order id: {}", paymentRequest.getOrderId());
+        Optional<Payment> paymentResponse = paymentRepository
+                .findByOrderId(UUID.fromString(paymentRequest.getOrderId()));
+        if (paymentResponse.isEmpty()) {
+            log.error("Payment with order id: {} could not be found!", paymentRequest.getOrderId());
+            throw new PaymentApplicationServiceException("Payment with order id: " +
+                    paymentRequest.getOrderId() + " could not be found!");
         }
-
         Payment payment = paymentResponse.get();
         CreditEntry creditEntry = getCreditEntry(payment.getCustomerId());
-        List<CreditHistory> creditHistoryList = getCreditHistory(payment.getCustomerId());
+        List<CreditHistory> creditHistories = getCreditHistory(payment.getCustomerId());
         List<String> failureMessages = new ArrayList<>();
-        PaymentEvent paymentEvent = paymentDomainService.validateAndCancelPayment(payment, creditEntry, creditHistoryList, failureMessages, paymentCancelledEventDomainPublisher, paymentFailedEventDomainEventPublisher);
-        persistDbObject(payment, creditEntry, creditHistoryList, failureMessages);
+        PaymentEvent paymentEvent = paymentDomainService
+                .validateAndCancelPayment(payment, creditEntry, creditHistories, failureMessages,
+                        paymentCancelledEventDomainEventPublisher, paymentFailedEventDomainEventPublisher);
+        persistDbObjects(payment, creditEntry, creditHistories, failureMessages);
         return paymentEvent;
     }
 
-    private List<CreditHistory> getCreditHistory(CustomerId customerId) {
-        Optional<List<CreditHistory>> creditHistoryList = creditHistoryRepository.findByCustomerId(customerId);
-        if (creditHistoryList.isEmpty()) {
-            log.error("Credit history not found for customer id: {}", customerId);
-            throw new PaymentApplicationServiceException("Credit history not found for customer id: " + customerId);
-        }
-        return creditHistoryList.get();
-    }
-
     private CreditEntry getCreditEntry(CustomerId customerId) {
-        Optional<CreditEntry> creditEntryOptional = creditEntryRepository.findByCustomerId(customerId);
-        if(creditEntryOptional.isEmpty()){
+        Optional<CreditEntry> creditEntry = creditEntryRepository.findByCustomerId(customerId);
+        if (creditEntry.isEmpty()) {
             log.error("Could not find credit entry for customer: {}", customerId.getValue());
-            throw new PaymentApplicationServiceException("Could not find credit entry for customer: " + customerId.getValue());
+            throw new PaymentApplicationServiceException("Could not find credit entry for customer: " +
+                    customerId.getValue());
         }
-        return creditEntryOptional.get();
+        return creditEntry.get();
     }
 
-    private void persistDbObject(Payment payment, CreditEntry creditEntry, List<CreditHistory> creditHistoryList, List<String> failureMessages) {
+    private List<CreditHistory> getCreditHistory(CustomerId customerId) {
+        Optional<List<CreditHistory>> creditHistories = creditHistoryRepository.findByCustomerId(customerId);
+        if (creditHistories.isEmpty()) {
+            log.error("Could not find credit history for customer: {}", customerId.getValue());
+            throw new PaymentApplicationServiceException("Could not find credit history for customer: " +
+                    customerId.getValue());
+        }
+        return creditHistories.get();
+    }
+
+    private void persistDbObjects(Payment payment,
+                                  CreditEntry creditEntry,
+                                  List<CreditHistory> creditHistories,
+                                  List<String> failureMessages) {
         paymentRepository.save(payment);
-
-        if(failureMessages.isEmpty()){
+        if (failureMessages.isEmpty()) {
             creditEntryRepository.save(creditEntry);
-            creditHistoryRepository.save(creditHistoryList.get( creditHistoryList.size() - 1));
+            creditHistoryRepository.save(creditHistories.get(creditHistories.size() - 1));
         }
     }
+
 }

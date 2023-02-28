@@ -17,21 +17,22 @@ public class Payment extends AggregateRoot<PaymentId> {
     private final OrderId orderId;
     private final CustomerId customerId;
     private final Money price;
+
     private PaymentStatus paymentStatus;
     private ZonedDateTime createdAt;
 
-    public void initializePayment(){
+    public void initializePayment() {
         setId(new PaymentId(UUID.randomUUID()));
         createdAt = ZonedDateTime.now(ZoneId.of("UTC"));
     }
 
-    public void validatePayment(List<String> failureMessages){
-        if(price == null || !price.isGreaterThanZero()){
-            failureMessages.add("Price is not valid");
+    public void validatePayment(List<String> failureMessages) {
+        if (price == null || !price.isGreaterThanZero()) {
+            failureMessages.add("Total price must be greater than zero!");
         }
     }
 
-    public void updateStatus(PaymentStatus paymentStatus){
+    public void updateStatus(PaymentStatus paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
 
@@ -42,6 +43,10 @@ public class Payment extends AggregateRoot<PaymentId> {
         price = builder.price;
         paymentStatus = builder.paymentStatus;
         createdAt = builder.createdAt;
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
 
@@ -74,10 +79,6 @@ public class Payment extends AggregateRoot<PaymentId> {
         private ZonedDateTime createdAt;
 
         private Builder() {
-        }
-
-        public static Builder builder() {
-            return new Builder();
         }
 
         public Builder paymentId(PaymentId val) {

@@ -18,7 +18,11 @@ public class PaymentCompletedKafkaMessagePublisher implements PaymentCompletedMe
     private final KafkaProducer<String, PaymentResponseAvroModel> kafkaProducer;
     private final PaymentServiceConfigData paymentServiceConfigData;
     private final KafkaMessageHelper kafkaMessageHelper;
-    public PaymentCompletedKafkaMessagePublisher(PaymentMessagingDataMapper paymentMessagingDataMapper, KafkaProducer<String, PaymentResponseAvroModel> kafkaProducer, PaymentServiceConfigData paymentServiceConfigData, KafkaMessageHelper kafkaMessageHelper) {
+
+    public PaymentCompletedKafkaMessagePublisher(PaymentMessagingDataMapper paymentMessagingDataMapper,
+                                                 KafkaProducer<String, PaymentResponseAvroModel> kafkaProducer,
+                                                 PaymentServiceConfigData paymentServiceConfigData,
+                                                 KafkaMessageHelper kafkaMessageHelper) {
         this.paymentMessagingDataMapper = paymentMessagingDataMapper;
         this.kafkaProducer = kafkaProducer;
         this.paymentServiceConfigData = paymentServiceConfigData;
@@ -28,10 +32,13 @@ public class PaymentCompletedKafkaMessagePublisher implements PaymentCompletedMe
     @Override
     public void publish(PaymentCompletedEvent domainEvent) {
         String orderId = domainEvent.getPayment().getOrderId().getValue().toString();
-        log.info("Received PaymentCompletedEvent for orderId: {}", orderId);
+
+        log.info("Received PaymentCompletedEvent for order id: {}", orderId);
 
         try {
-            PaymentResponseAvroModel paymentResponseAvroModel = paymentMessagingDataMapper.paymentCompletedEventToPaymentResponseAvroModel(domainEvent);
+            PaymentResponseAvroModel paymentResponseAvroModel =
+                    paymentMessagingDataMapper.paymentCompletedEventToPaymentResponseAvroModel(domainEvent);
+
             kafkaProducer.send(paymentServiceConfigData.getPaymentResponseTopicName(),
                     orderId,
                     paymentResponseAvroModel,
@@ -40,10 +47,10 @@ public class PaymentCompletedKafkaMessagePublisher implements PaymentCompletedMe
                             orderId,
                             "PaymentResponseAvroModel"));
 
-            log.info("PaymentResponseAvroModel sent to Kafka for orderId: {}", orderId);
+            log.info("PaymentResponseAvroModel sent to kafka for order id: {}", orderId);
         } catch (Exception e) {
             log.error("Error while sending PaymentResponseAvroModel message" +
-                    " to kafka with orderId: {}, error: {}", orderId, e.getMessage());
+                    " to kafka with order id: {}, error: {}", orderId, e.getMessage());
         }
     }
 }
