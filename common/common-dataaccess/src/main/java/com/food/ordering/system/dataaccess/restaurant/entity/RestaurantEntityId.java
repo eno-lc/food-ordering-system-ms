@@ -1,7 +1,6 @@
-package com.food.ordering.system.order.service.dataaccess.restaurant.entity;
+package com.food.ordering.system.dataaccess.restaurant.entity;
 
 import lombok.*;
-import org.springframework.core.serializer.Serializer;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -9,10 +8,11 @@ import java.util.UUID;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class RestaurantEntityId  implements Serializable {
+public class RestaurantEntityId implements Serializable {
+
     private UUID restaurantId;
     private UUID productId;
 
