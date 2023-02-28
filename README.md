@@ -94,3 +94,14 @@ kind of Application Services that is triggered by domain events. Each domain eve
 * Data is serialized/deserialized with registered schema.
 
 ![img_12.png](images/img_12.png)
+
+
+# SAGA Pattern
+
+* Saga pattern is a distributed transaction pattern. It is used to coordinate multiple microservices in a distributed system. It is used for Long Lived Transactions (LLT). 
+* Chain of local ACID transactions to finalise a long-running transaction across services.
+* Compensating transactions: If one of the transactions fails, the saga will roll back all the transactions that have been executed so far. Rollback in case of failure.
+* Saga Step interface - defines the methods that are used to execute the transaction and to rollback the transaction. 
+* The methods are process() and rollback().
+
+![img_13.png](images/img_13.png)
