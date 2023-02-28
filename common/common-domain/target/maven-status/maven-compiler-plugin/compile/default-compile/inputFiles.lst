@@ -10,6 +10,7 @@ C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\m
 C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\RestaurantOrderStatus.java
 C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\BaseId.java
 C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\ProductId.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\event\EmptyEvent.java
 C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\RestaurantId.java
 C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\entity\AggregateRoot.java
 C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\common\common-domain\src\main\java\com\food\ordering\system\domain\valueobject\PaymentStatus.java

@@ -5,7 +5,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+infrastructure/docker-compose/volumes/
+infrastructure/docker-compose/volumes
 ### STS ###
 .apt_generated
 .classpath
