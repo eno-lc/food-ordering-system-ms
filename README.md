@@ -105,3 +105,18 @@ kind of Application Services that is triggered by domain events. Each domain eve
 * The methods are process() and rollback().
 
 ![img_13.png](images/img_13.png)
+
+
+# Outbox Pattern
+
+* It helps the use of local ACID transactions to let consistent(eventual) distributed transactions.
+* It completes SAGA in a safe and consistent way.
+* Persist events in local database automatically with ACID transactions.
+* Read the events and publish.
+  * Pulling Outbox Table: Pull the events with a scheduler
+  * Change Data Capture: Listen transaction logs
+* Keep track of saga and order status in Outbox Table.
+* Ensure idempotency: Do not consume same data.
+* Optimistic locks and DB Constraints: Prevent data corruption.
+
+![img_14.png](images/img_14.png)
