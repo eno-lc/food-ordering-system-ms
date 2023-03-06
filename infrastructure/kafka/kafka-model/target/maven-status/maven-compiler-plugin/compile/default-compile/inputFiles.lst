@@ -7,3 +7,4 @@ C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\infrastructure\kafka\kafka
 C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\infrastructure\kafka\kafka-model\src\main\java\com\food\ordering\system\kafka\order\avro\model\RestaurantOrderStatus.java
 C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\infrastructure\kafka\kafka-model\src\main\java\com\food\ordering\system\kafka\order\avro\model\RestaurantApprovalRequestAvroModel.java
 C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\infrastructure\kafka\kafka-model\src\main\java\com\food\ordering\system\kafka\order\avro\model\PaymentRequestAvroModel.java
+C:\Users\Enis Halilaj\Desktop\food-ordering-system-ms\infrastructure\kafka\kafka-model\src\main\java\com\food\ordering\system\kafka\order\avro\model\CustomerAvroModel.java
