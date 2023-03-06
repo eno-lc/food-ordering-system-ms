@@ -127,5 +127,7 @@ kind of Application Services that is triggered by domain events. Each domain eve
 * CQRS stands for Command Query Responsibility Segregation. It is a pattern that separates read and write operations for a data store.
 * Separates read and write operations. Better performance on read part using right technology for reading, and preventing conflicts with update commands. Scale each part separately.
 * Leads to eventual consistency, as the read store is updated asynchronously.
+* Once the write is persisted, an event is stored in event-store. Event store is a log of events that happened in the system.
+* Events can be replayed multiple times based on requirements to create different type of query store.
 
 ![img_15.png](images/img_15.png)
