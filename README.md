@@ -120,3 +120,12 @@ kind of Application Services that is triggered by domain events. Each domain eve
 * Optimistic locks and DB Constraints: Prevent data corruption.
 
 ![img_14.png](images/img_14.png)
+
+
+# CQRS Pattern
+
+* CQRS stands for Command Query Responsibility Segregation. It is a pattern that separates read and write operations for a data store.
+* Separates read and write operations. Better performance on read part using right technology for reading, and preventing conflicts with update commands. Scale each part separately.
+* Leads to eventual consistency, as the read store is updated asynchronously.
+
+![img_15.png](images/img_15.png)
