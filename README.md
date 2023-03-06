@@ -131,3 +131,25 @@ kind of Application Services that is triggered by domain events. Each domain eve
 * Events can be replayed multiple times based on requirements to create different type of query store.
 
 ![img_15.png](images/img_15.png)
+
+# Kubernetes Concepts
+
+* Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+* The physical servers or virtual machines that create the kubernetes cluster are called **Nodes**.
+* The smallest unit of execution in kubernetes are called **Pods**. They are deployable units, and consists of one or more containers, which internally consist of one or more applications.
+* To deploy, manage and scale the pods we use the **Controllers**
+* To expose deployments through NodePort or LoadBalancer we use **Services**
+* **NodePort** exposes the service on a static port on the node IP Address. NodePorts are in the 30000-32767 range by default.
+* When exposing a kubernetes service, point the external IP to nodes, set firewall rules to access to node.
+* **LoadBalancer** exposes a single external IP, and internally holds multiple ports to distribute the load.
+* **Ingress** is a collection of rules that allow inbound connections to reach the cluster services.
+* **ConfigMap** is a way to store non-confidential data in key-value pairs.
+* **Secret** is a way to store confidential data in key-value pairs.
+* **PersistentVolume** is a piece of storage in the cluster that has been provisioned by an administrator.
+* **PersistentVolumeClaim** is a request for storage by a user.
+* **StatefulSet** is a controller that provides guarantees about the ordering and uniqueness of Pods.
+* **DaemonSet** ensures that all (or some) Nodes run a copy of a Pod.
+* **Job** is a controller that manages Pods that run to completion.
+* **CronJob** is a controller that manages time-based Jobs, namely: once at a specified point in time, once at a specified point in time repeatedly, once at a specified point in time repeatedly in a given time zone.
+* **ReplicaSet** is the next-generation ReplicationController. The only difference between a ReplicaSet and a ReplicationController right now is the selector support. ReplicaSet supports the new set-based selector requirements as described in the labels user guide while a ReplicationController only supports equality-based selector requirements.
+* **Deployment** is a higher-level API object that manages ReplicaSets and provides declarative updates to Pods along with a lot of other useful features.
