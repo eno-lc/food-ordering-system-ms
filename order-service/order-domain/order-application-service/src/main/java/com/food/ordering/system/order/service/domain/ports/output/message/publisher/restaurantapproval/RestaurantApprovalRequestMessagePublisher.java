@@ -9,5 +9,4 @@ public interface RestaurantApprovalRequestMessagePublisher {
 
     void publish(OrderApprovalOutboxMessage orderApprovalOutboxMessage,
                  BiConsumer<OrderApprovalOutboxMessage, OutboxStatus> outboxCallback);
-
 }

@@ -9,12 +9,10 @@ import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.List;
 
-
 @Getter
 @Builder
 @AllArgsConstructor
 public class OrderApprovalEventPayload {
-
     @JsonProperty
     private String orderId;
     @JsonProperty

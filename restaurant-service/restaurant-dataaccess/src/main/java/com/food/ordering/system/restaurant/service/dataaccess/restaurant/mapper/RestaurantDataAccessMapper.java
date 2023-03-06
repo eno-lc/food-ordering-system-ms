@@ -33,7 +33,7 @@ public class RestaurantDataAccessMapper {
                         new RestaurantDataAccessException("No restaurants found!"));
 
         List<Product> restaurantProducts = restaurantEntities.stream().map(entity ->
-                        Product.Builder.builder()
+                        Product.builder()
                                 .productId(new ProductId(entity.getProductId()))
                                 .name(entity.getProductName())
                                 .price(new Money(entity.getProductPrice()))
@@ -41,9 +41,9 @@ public class RestaurantDataAccessMapper {
                                 .build())
                 .collect(Collectors.toList());
 
-        return Restaurant.Builder.builder()
+        return Restaurant.builder()
                 .restaurantId(new RestaurantId(restaurantEntity.getRestaurantId()))
-                .orderDetail(OrderDetail.Builder.builder()
+                .orderDetail(OrderDetail.builder()
                         .products(restaurantProducts)
                         .build())
                 .active(restaurantEntity.getRestaurantActive())
@@ -55,16 +55,16 @@ public class RestaurantDataAccessMapper {
                 .id(orderApproval.getId().getValue())
                 .restaurantId(orderApproval.getRestaurantId().getValue())
                 .orderId(orderApproval.getOrderId().getValue())
-                .status(orderApproval.getOrderApprovalStatus())
+                .status(orderApproval.getApprovalStatus())
                 .build();
     }
 
     public OrderApproval orderApprovalEntityToOrderApproval(OrderApprovalEntity orderApprovalEntity) {
-        return OrderApproval.Builder.builder()
+        return OrderApproval.builder()
                 .orderApprovalId(new OrderApprovalId(orderApprovalEntity.getId()))
                 .restaurantId(new RestaurantId(orderApprovalEntity.getRestaurantId()))
                 .orderId(new OrderId(orderApprovalEntity.getOrderId()))
-                .orderApprovalStatus(orderApprovalEntity.getStatus())
+                .approvalStatus(orderApprovalEntity.getStatus())
                 .build();
     }
 

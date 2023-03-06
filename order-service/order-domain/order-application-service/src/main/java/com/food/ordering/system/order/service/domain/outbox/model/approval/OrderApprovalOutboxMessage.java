@@ -10,12 +10,10 @@ import lombok.Getter;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-
 @Getter
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
 public class OrderApprovalOutboxMessage {
-
     private UUID id;
     private UUID sagaId;
     private ZonedDateTime createdAt;
@@ -42,5 +40,4 @@ public class OrderApprovalOutboxMessage {
     public void setOutboxStatus(OutboxStatus outboxStatus) {
         this.outboxStatus = outboxStatus;
     }
-
 }

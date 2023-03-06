@@ -22,26 +22,31 @@ public class OrderSagaHelper {
         this.orderRepository = orderRepository;
     }
 
-    public Order findOrder(String orderId){
-        Optional<Order> orderResponse =  orderRepository.findById(new OrderId(UUID.fromString(orderId)));
-        if(orderResponse.isEmpty()){
-            log.error("Order with id: {} not found", orderId);
-            throw new OrderNotFoundException("Order with id: " + orderId + " not found");
+    Order findOrder(String orderId) {
+        Optional<Order> orderResponse = orderRepository.findById(new OrderId(UUID.fromString(orderId)));
+        if (orderResponse.isEmpty()) {
+            log.error("Order with id: {} could not be found!", orderId);
+            throw new OrderNotFoundException("Order with id " + orderId + " could not be found!");
         }
         return orderResponse.get();
     }
 
-    void saveOrder(Order order){
+    void saveOrder(Order order) {
         orderRepository.save(order);
     }
 
-    SagaStatus orderStatusToSagaStatus(OrderStatus orderStatus){
-        return switch (orderStatus) {
-            case PAID -> SagaStatus.PROCESSING;
-            case APPROVED -> SagaStatus.SUCCEEDED;
-            case CANCELLING -> SagaStatus.COMPENSATING;
-            case CANCELLED -> SagaStatus.COMPENSATED;
-            default -> SagaStatus.STARTED;
-        };
+    SagaStatus orderStatusToSagaStatus(OrderStatus orderStatus) {
+        switch (orderStatus) {
+            case PAID:
+                return SagaStatus.PROCESSING;
+            case APPROVED:
+                return SagaStatus.SUCCEEDED;
+            case CANCELLING:
+                return SagaStatus.COMPENSATING;
+            case CANCELLED:
+                return SagaStatus.COMPENSATED;
+            default:
+                return SagaStatus.STARTED;
+        }
     }
 }
